@@ -24,4 +24,9 @@ public class LoanService {
 		newLoan.setStatus(LoanStatus.REQUESTED);
 		dataManager.save(newLoan);
 	}
+
+	public void updateLoanStatus(Loan loan, LoanStatus loanStatus) {
+		loan.setStatus(loanStatus);
+		dataManager.save(loan);
+	}
 }

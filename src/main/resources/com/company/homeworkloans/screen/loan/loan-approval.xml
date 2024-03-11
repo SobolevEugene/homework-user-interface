@@ -54,10 +54,16 @@
 	<dialogMode height="600"
 	            width="800"/>
 	<layout expand="loansTable" spacing="true">
+		<hbox id="approveRejectPanel" spacing="true">
+			<button id="approveButton" action="loansTable.approveAction"/>
+			<button id="rejectButton" action="loansTable.rejectAction"/>
+		</hbox>
 		<groupTable id="loansTable"
 		            width="100%"
 		            dataContainer="loansDc">
 			<actions>
+				<action id="approveAction" caption="msg://Approve" icon="BANK"/>
+				<action id="rejectAction" caption="msg://Reject" icon="BAN"/>
 			</actions>
 			<columns>
 				<group>
