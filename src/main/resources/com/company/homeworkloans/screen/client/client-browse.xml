@@ -27,6 +27,7 @@
         <action id="lookupCancelAction"
                 caption="msg:///actions.Cancel"
                 icon="LOOKUP_CANCEL"/>
+        <action id="requestLoanDialogAction" caption="msg://RequestLoan"/>
     </actions>
     <dialogMode height="600"
                 width="800"/>
@@ -56,6 +57,7 @@
                 <button id="createBtn" action="clientsTable.create"/>
                 <button id="editBtn" action="clientsTable.edit"/>
                 <button id="removeBtn" action="clientsTable.remove"/>
+                <button id="requestLoanBtn" action="requestLoanDialogAction"/>
             </buttonsPanel>
         </groupTable>
         <hbox id="lookupActions" spacing="true" visible="false">
