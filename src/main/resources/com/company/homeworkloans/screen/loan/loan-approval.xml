@@ -15,6 +15,27 @@
 				</query>
 			</loader>
 		</collection>
+		<collection id="clientOtherLoansDc"
+		            class="com.company.homeworkloans.entity.Loan">
+			<fetchPlan extends="_base">
+				<property name="client" fetchPlan="_base"/>
+			</fetchPlan>
+			<loader id="clientOtherLoansDl">
+				<query>
+					<![CDATA[select l from Loan l]]>
+					<condition>
+						<and>
+							<c:jpql>
+								<c:where>l.client.id = :clientId</c:where>
+							</c:jpql>
+							<c:jpql>
+								<c:where><![CDATA[l.id<>:loanId]]></c:where>
+							</c:jpql>
+						</and>
+					</condition>
+				</query>
+			</loader>
+		</collection>
 	</data>
 	<facets>
 		<dataLoadCoordinator auto="true"/>
@@ -57,5 +78,17 @@
 			<button action="lookupSelectAction"/>
 			<button action="lookupCancelAction"/>
 		</hbox>
+		<groupTable caption="msg://PreviousLoans" id="clientOtherLoansTable"
+		            width="100%"
+		            height="190px"
+		            dataContainer="clientOtherLoansDc">
+			<actions>
+			</actions>
+			<columns>
+				<column id="amount"/>
+				<column id="requestDate"/>
+				<column id="status"/>
+			</columns>
+		</groupTable>
 	</layout>
 </window>
